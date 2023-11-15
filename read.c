@@ -43,7 +43,5 @@ void error_msg(char **argv, char **args)
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, args[0], strlen(args[0]));
 	write(STDERR_FILENO, ": not found\n", 12);
-	free_array(args);
-	exit(127);
 
 }

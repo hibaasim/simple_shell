@@ -7,19 +7,17 @@
  */
 char *get_path(char *cmmd)
 {
-	char *path, *path_copy, *new_path, *path_tok;
+	char *path = NULL, *path_copy = NULL, *new_path = NULL, *path_tok = NULL;
 	const char *deli = ":";
-	int len;
 	struct stat st;
 
 	path = getenv("PATH");
 	path_copy = strdup(path);
-	len = strlen(cmmd);
 
 	path_tok = strtok(path_copy, deli);
 	while (path_tok)
 	{
-		new_path = malloc(len + strlen(path) + 2);
+		new_path = malloc(strlen(cmmd) + strlen(path) + 2);
 		if (new_path == NULL)
 		{
 			perror("Allocation fail");

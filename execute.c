@@ -21,11 +21,14 @@ void exec(char **args, char **argv)
 	}
 	else if (pid == 0)
 	{
+		if (args[0])
+		{
 		cmmd = get_path(args[0]);
 		if (cmmd)
 		{
 			execve(cmmd, args, environ);
 			perror("simple_shell");
+			free(cmmd);
 			free_array(args);
 			exit(127);
 		}
@@ -33,6 +36,9 @@ void exec(char **args, char **argv)
 		{
 			error_msg(argv, args);
 		}
+		}
+		free_array(args);
+		exit(EXIT_SUCCESS);
 	}
 	else
 	{
