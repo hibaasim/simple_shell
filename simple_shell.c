@@ -9,8 +9,7 @@
 
 int main(int argc, char **argv)
 {
-	char *cmd;
-	char *deli = " \n\t";
+	char *deli = " \n\t", *cmd;
 	char **args;
 
 	(void)argc;
@@ -53,9 +52,11 @@ void prompt(void)
 	}
 }
 
+
 /**
  * handle_sigint - handle ctrl + c signal.
  * @sig: the signal.
+ *
  * Return: nothing.
  */
 
@@ -66,9 +67,11 @@ void handle_sigint(int sig)
 	write(STDOUT_FILENO, "$$ ", 3);
 }
 
+
 /**
  * free_array - free allocated array.
  * @args: allocated array to free.
+ *
  * Return: nothing.
 */
 void free_array(char **args)
