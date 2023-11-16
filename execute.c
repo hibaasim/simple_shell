@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * exec - function to execute commands with arguments.
+ * exec - Function to execute commands with arguments.
  * @args: the commands and arguments to execute.
  * @argv: arguments passed to main func.
  *
@@ -49,7 +49,7 @@ void exec(char **args, char **argv)
 
 
 /**
- * print_env - print all envirnomental variables.
+ * print_env - Print all envirnomental variables.
  *
  * Return: nothing.
  */
