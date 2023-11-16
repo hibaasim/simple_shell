@@ -9,7 +9,7 @@
 
 void exec(char **args, char **argv)
 {
-	int status;
+	int status = 0;
 	pid_t pid = fork();
 	char *cmmd;
 
@@ -17,25 +17,25 @@ void exec(char **args, char **argv)
 	{
 		perror("simple_shell");
 		free_array(args);
-		exit(EXIT_FAILURE);
+		exit(2);
 	}
 	else if (pid == 0)
 	{
 		if (args[0])
 		{
-		cmmd = get_path(args[0]);
-		if (cmmd)
-		{
-			execve(cmmd, args, environ);
-			perror("simple_shell");
-			free(cmmd);
-			free_array(args);
-			exit(127);
-		}
-		else
-		{
-			error_msg(argv, args);
-		}
+			cmmd = get_path(args[0]);
+			if (cmmd)
+			{
+				execve(cmmd, args, environ);
+				perror("simple_shell");
+				free(cmmd);
+				free_array(args);
+				exit(127);
+			}
+			else
+			{
+				error_msg(argv, args);
+			}
 		}
 		free_array(args);
 		exit(EXIT_SUCCESS);
