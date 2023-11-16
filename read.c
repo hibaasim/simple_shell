@@ -2,6 +2,7 @@
 
 /**
  * read_line - function to read the user input (commands and arguments).
+ *
  * Return: user input (commands and arguments).
  */
 
@@ -29,10 +30,12 @@ char *read_line(void)
 	}
 }
 
+
 /**
  * error_msg - print error massege and exit.
  * @argv: passed arguments to main func.
  * @args: array of command and arguments.
+ *
  * Return: nothing.
 */
 void error_msg(char **argv, char **args)
